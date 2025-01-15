@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 
+axios.defaults.withCredentials = true;  
 const API_URL = '54.152.189.90:5000';
 
 const parseDate = (dateString: string): Date | null => {
@@ -82,7 +83,9 @@ const DocumentManager: React.FC = () => {
 
   const handleLogin = async () => {
     try {
-      await axios.post(`${API_URL}/login`, { username, password });
+      await axios.post(`${API_URL}/login`, { username, password }, {
+        withCredentials: true  
+      });
       setIsLoggedIn(true);
       setLoginError('');
       await fetchDocuments();
@@ -96,6 +99,8 @@ const DocumentManager: React.FC = () => {
       await axios.post(`${API_URL}/signup`, {
         username: signupUsername,
         password: signupPassword
+      },{
+        withCredentials: true  // Add this
       });
       setSignupUsername('');
       setSignupPassword('');
@@ -114,6 +119,7 @@ const DocumentManager: React.FC = () => {
         formData.append('username', username);
 
         const response = await axios.post(`${API_URL}/upload`, formData, {
+           withCredentials: true,
           headers: { 'Content-Type': 'multipart/form-data' }
         });
 
@@ -198,6 +204,8 @@ const DocumentManager: React.FC = () => {
           document_id: selectedDocument._id,
           expiration_date: formattedDate,
           document_name: newDocumentName
+        }, { 
+          withCredentials: true  // Add this
         });
 
         setDocuments(docs => docs.map(doc =>

@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 
-const API_URL = 'http://localhost:5000';
+const API_URL = 'https://heavy-monkeys-send.loca.lt';
 
 const parseDate = (dateString: string): Date | null => {
   const [day, month, year] = dateString.split('-');

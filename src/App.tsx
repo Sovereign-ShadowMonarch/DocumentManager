@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 
-const API_URL = 'http://54.152.189.90:5000';
+const API_URL = '54.152.189.90:5000';
 
 const parseDate = (dateString: string): Date | null => {
   const [day, month, year] = dateString.split('-');

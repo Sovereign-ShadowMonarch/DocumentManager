@@ -5,7 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 
 axios.defaults.withCredentials = true;  
-const API_URL = '54.152.189.90:5000';
+const API_URL = 'https://documentmanagerbackend.onrender.com';
 
 const parseDate = (dateString: string): Date | null => {
   const [day, month, year] = dateString.split('-');
